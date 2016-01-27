@@ -37,6 +37,7 @@ namespace Blog.Controllers
         }
 
         // GET: Comments/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName");
@@ -68,6 +69,7 @@ namespace Blog.Controllers
         }
 
         // GET: Comments/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +80,10 @@ namespace Blog.Controllers
             if (comment == null)
             {
                 return HttpNotFound();
+            }
+            if (User.Identity.Name != comment.Author.UserName)
+            {
+                return RedirectToAction("Index");
             }
             ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comment.AuthorId);
             ViewBag.EditorId = new SelectList(db.Users, "Id", "FirstName", comment.EditorId);
