@@ -1,13 +1,70 @@
-﻿@model IEnumerable<Blog.Models.Post>
+﻿@using Blog.Controllers
+@using Blog.Models
+@model IEnumerable<Blog.Models.Post>
 
-@{
-    ViewBag.Title = "Index";
-}
+<head>
+    @{
+        ViewBag.Title = "Index";
+    }
+    <h2>Index</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
 
-<h2>Index</h2>
+    <p>
+        @using (Html.BeginForm("Index", "User", FormMethod.Post))
+        {
+            @Html.TextBox("BlogPostSearch", String.Empty)
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Search</button>
+            </span>
+        }
+    </p>
+</head>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-    
-    
+<body>
+
+        @foreach (var x in Model)
+        {
+            <div class="row medium-8 large-7 columns">
+                <div class="blog-post">
+                    <h3>@x.Title<small>Created:@x.Created</small></h3>
+                    <img class="thumbnail" src="@x.MediaUrl">
+                    <p>@x.Body</p>
+                    <div class="callout">
+                        <ul class="menu simple">
+                            <li><a href="#">Author: </a></li>
+                            <li><a href="#">Comments: 3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+                
+
+                }
+
+                    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+                    <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+                    <script>
+                        $(document).foundation();
+                    </script>
+                </body>
+
+
+
+
+
+
+
+
+
+
+
+
+

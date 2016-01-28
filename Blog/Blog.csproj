@@ -314,6 +314,7 @@
     <Content Include="assets\img\legal\profile.png" />
     <Content Include="assets\img\logo%402x.png" />
     <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\miami2.jpg" />
     <Content Include="assets\img\people\1.jpg" />
     <Content Include="assets\img\people\2.jpg" />
     <Content Include="assets\img\people\3.jpg" />
@@ -434,6 +435,7 @@
     <Content Include="bin\System.Web.WebPages.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\WebGrease.dll" />
+    <Content Include="blog-simple %281%29.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
