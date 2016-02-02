@@ -7,6 +7,7 @@ using Blog.Models;
 
 namespace Blog.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         public ActionResult Index()
