@@ -9,11 +9,11 @@
         ViewBag.Title = "Index";
     }
 </head>
-    <p>
+@*@if (Roles.IsUserInRole("Administrator"))
+{
         @Html.ActionLink("Create New Post", "Create")
-    </p>
-
-    <p>
+}*@
+    @*<p>
         @using (Html.BeginForm("Index", "User", FormMethod.Post))
         {
             @Html.TextBox("BlogPostSearch", String.Empty)
@@ -21,18 +21,18 @@
                 <button class="btn btn-default" type="submit">Search</button>
             </span>
         }
-    </p>
+    </p>*@
 
 
 <body>
 
 @foreach (var x in Model)
 {
-    <div class="row medium-8 large-7 columns">
+    <div class="row medium-8 large-7 columns" style="align-content: center">
         <div class="blog-post">
             <h2>@x.Title<small>Created:@x.Created</small>
             </h2>
-            <img class="thumbnail" src="@x.MediaUrl">
+            <img style="align-content: center" class="thumbnail" src="@x.MediaUrl">
             <div id="wrapper">
                 <p>@x.Body
                     @Html.ActionLink(
