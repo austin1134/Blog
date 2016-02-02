@@ -2,6 +2,7 @@
 using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
+using System.Web.Mvc;
 using Blog.Models;
 
 namespace Blog.Models
@@ -19,6 +20,7 @@ namespace Blog.Models
         public DateTimeOffset Created { get; set; }
         public DateTimeOffset Updated { get; set; }
         public string Title { get; set; }
+        [AllowHtml]
         public string Body { get; set; }
         public string MediaUrl { get; set; }
         public bool Published { get; set; }

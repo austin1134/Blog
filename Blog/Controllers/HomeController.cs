@@ -11,10 +11,12 @@ namespace Blog.Controllers
     {
         public ActionResult Index()
         {
-            //var db = new ApplicationDbContext();
-            //UserDisplayModel.DisplayName = db.Users.FirstOrDefault(
-            //    u => u.UserName == User.Identity.Name).FirstName;
-
+            if (User.Identity.IsAuthenticated)
+            {
+                var db = new ApplicationDbContext();
+                UserDisplayModel.DisplayName = db.Users.FirstOrDefault(
+                u => u.UserName == User.Identity.Name).FirstName;
+            }
             return View();
         }
 

@@ -128,7 +128,7 @@ namespace Blog.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult PostDetails(string id = null)
+        public ActionResult PostDetails(int id)
         {
             Post post = db.Posts.Find(id);
             if (post == null)

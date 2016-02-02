@@ -62,33 +62,7 @@
 
 
 @*<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>*@
 
 
-@*<div>
-            <h1>@Post.PostID</h1>
-            <ul>
-                <li>@Post.Title</li>
-                <li>@Post.Body</li>
-                <li>@Html.ActionLink(
-                        "View Details",
-                        "PostDetails",
-                        new { id = Post.PostID},
-                        new { @class = "post-details"})
-                   </li>
-            </ul>
-        </div>
-
-    @section scripts{
-        <script>
-            $(function() {
-                ('.customer-details').on('click', function(e) {
-                    $.get($(this).prop('href'), function(response) {
-                    });
-                    e.preventDefault();
-                });
-            });
-        </script>
-}*@
