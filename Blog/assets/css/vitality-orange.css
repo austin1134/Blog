@@ -97,6 +97,7 @@ body {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 300;
+  border: none 0px
 }
 a {
   color: #f26f21;
@@ -178,7 +179,7 @@ hr.colored {
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
   color: #f26f21;
-  background-color: white;
+  background-color: transparent;
   border-radius: 0;
 }
 .navbar-default {

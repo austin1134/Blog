@@ -86,8 +86,8 @@
     // Formstone Background - Video Background Settings
     $("header.video").background({
         source: {
-            poster: "assets/img/bg-mobile-fallback.jpg",
-            mp4: "assets/mp4/MiamiBeachTimeLapse.mp4"
+            poster: "/assests/img/miami2.jpg",
+            mp4: "/assets/mp4/MiamiBeachTimeLapse.mp4"
         }
     });
 

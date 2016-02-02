@@ -38,4 +38,10 @@ namespace Blog.Models
         public DbSet<Category> Categories { get; set; }
 
     }
+
+    //For displaying the users name in LoginPartial instead of the users email
+    public static class UserDisplayModel
+    {
+        public static string DisplayName { get; set; }
+    }
 }

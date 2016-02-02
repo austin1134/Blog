@@ -1,0 +1,94 @@
+﻿@using Blog.Models
+@model Blog.Models.Post
+
+<div id="PostDetails">
+
+    <h4>Post</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Body)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MediaUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MediaUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Published)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Published)
+        </dd>
+
+    </dl>
+</div>
+
+
+
+
+
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
+
+
+@*<div>
+            <h1>@Post.PostID</h1>
+            <ul>
+                <li>@Post.Title</li>
+                <li>@Post.Body</li>
+                <li>@Html.ActionLink(
+                        "View Details",
+                        "PostDetails",
+                        new { id = Post.PostID},
+                        new { @class = "post-details"})
+                   </li>
+            </ul>
+        </div>
+
+    @section scripts{
+        <script>
+            $(function() {
+                ('.customer-details').on('click', function(e) {
+                    $.get($(this).prop('href'), function(response) {
+                    });
+                    e.preventDefault();
+                });
+            });
+        </script>
+}*@

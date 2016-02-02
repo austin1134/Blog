@@ -127,5 +127,16 @@ namespace Blog.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult PostDetails(string id = null)
+        {
+            Post post = db.Posts.Find(id);
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+            return PartialView("_PostDetails", post);
+        }
+
     }
 }

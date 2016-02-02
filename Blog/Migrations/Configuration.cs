@@ -39,7 +39,7 @@ namespace Blog.Migrations
                     FirstName = "Austin",
                     LastName = "Torres",
 
-                }, "austint1");
+                }, "TA1234ta!!");
             }
 
             var userId = userManager.FindByEmail("austin.torres@colorado.edu").Id;
