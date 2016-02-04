@@ -91,6 +91,14 @@
         }
     });
 
+    // Formstone Background - Image Background Settings
+    $("header.image").background({
+        source: {
+            poster: "/assets/img/miami2.jpg",
+            poster1: "https://localhost:44300/../img/miami2.jpg"
+        }
+    });
+
     // Scrollspy: Highlights the navigation menu items while scrolling.
     $('body').scrollspy({
         target: '.navbar-fixed-top',

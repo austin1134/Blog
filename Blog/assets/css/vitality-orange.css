@@ -378,6 +378,28 @@ header.video .scroll-down {
     opacity: 0.5;
   }
 }
+
+header.Image .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  z-index: 998;
+  opacity: 0;
+}
+header.Image .intro-content {
+  z-index: 999;
+}
+header.Image .scroll-down {
+  z-index: 999;
+}
+@media (min-width: 768px) {
+  header.Image .overlay {
+    opacity: 0.5;
+  }
+}
+
+
 aside.cta-quote {
   color: white;
   background-color: #222222;

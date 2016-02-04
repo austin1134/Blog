@@ -39,27 +39,27 @@ namespace Blog.Controllers
 
         // GET: Comments/Create
         [Authorize]
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName");
-            ViewBag.EditorId = new SelectList(db.Users, "Id", "FirstName");
-            ViewBag.ParentCommentId = new SelectList(db.Comments, "Id", "AuthorId");
-            ViewBag.PostId = new SelectList(db.Posts, "Id", "Title");
-            return View();
+            var model = new Comment {PostId = id};
+            return View(model);
         }
 
         // POST: Comments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,PostId,AuthorId,EditorId,Body,Created,Updated,ParentCommentId,MarkForDeletion")] Comment comment)
+        public ActionResult Create([Bind(Include = "PostId, Body")] Comment comment)
         {
             if (ModelState.IsValid)
             {
+                comment.Created = new DateTimeOffset(DateTime.Now);
+                comment.AuthorId = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name).Id;
                 db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Posts", new {id = comment.PostId });
             }
 
             ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comment.AuthorId);
@@ -97,6 +97,7 @@ namespace Blog.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,PostId,AuthorId,EditorId,Body,Created,Updated,ParentCommentId,MarkForDeletion")] Comment comment)
         {
@@ -114,6 +115,7 @@ namespace Blog.Controllers
         }
 
         // GET: Comments/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -1,6 +1,8 @@
 ﻿<div id="PostDetails"></div>
 @model Blog.Models.Post
 @using Blog.Controllers
+@using Blog.Models
+
 
 <head>
     <script src="~/assets/js/jquery.js" type="text/javascript"></script>
@@ -10,20 +12,44 @@
     }
 </head>
 
+@if (User.IsInRole("Admin"))
+{
+    @Html.ActionLink(
+                       "Edit Post",
+                       "Edit",
+                       new { id = Model.Id },
+                       new { @class = "post-details" })
+}
 
 <body>
-        <div class="row medium-8 large-7 columns">
-            <div class="blog-post">
-                <h1>@Html.DisplayFor(model => model.Title)<small>Created:@Html.DisplayFor(model => model.Created)</small></h1>
-                <img class="thumbnail" src="@Html.DisplayFor(model => model.MediaUrl)">
-                <div id="wrapper">
-                    <p>@Html.DisplayFor(model => model.Body)</p>
-                </div>
-            </div>
+<div class="row medium-8 large-7 columns">
+    <div class="blog-post">
+        <h1>@Html.DisplayFor(model => model.Title)<small>Created:@Html.DisplayFor(model => model.Created)</small>
+        </h1>
+        <img class="thumbnail" src="@Html.DisplayFor(model => model.MediaUrl)">
+        <div id="wrapper">
+            <p>@Html.DisplayFor(model => model.Body)</p>
         </div>
+        @Html.ActionLink("Create New Comment", "Create", "Comments",  "Id",
+            new { Id = Model.Id})
+        <div class="section-lines">
+            @foreach (var comment in Model.Comments)
+            {
+                @comment@*(comment, 0);*@
+            }
+        </div>
+    </div>
+</div>
 
+    @Html.ActionLink("-", "Delete", "Comments", "Id", new { Id = Model.Id})
+    @*<div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.Partial()
+            }
+        </div>*@
 
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
     <script>
     $(document).foundation();
